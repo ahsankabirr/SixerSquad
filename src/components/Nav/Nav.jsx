@@ -1,4 +1,4 @@
-const Nav = () => {
+const Nav = ({ credit }) => {
   return (
     <div>
       <div className="navbar bg-base-100 justify-between">
@@ -65,12 +65,12 @@ const Nav = () => {
             </li>
           </ul>
           <a className="btn">
+            {credit} Coin{" "}
             <img
               className="w-4"
               src="https://img.icons8.com/?size=96&id=sPBQkuep9vDA&format=png"
               alt=""
-            />{" "}
-            0 Coin
+            />
           </a>
         </div>
       </div>

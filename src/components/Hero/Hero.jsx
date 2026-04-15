@@ -1,4 +1,4 @@
-const Hero = () => {
+const Hero = ({ ClaimFreeCredit }) => {
   return (
     <div>
       <div
@@ -23,7 +23,10 @@ const Hero = () => {
               Beyond Boundaries Beyond Limits
             </p>
             <span className="">
-              <button className="btn bg-[#E7FE29] border-[#E7FE29]">
+              <button
+                onClick={() => ClaimFreeCredit()}
+                className="btn bg-[#E7FE29] border-[#E7FE29]"
+              >
                 Claim Free Credit
               </button>
             </span>

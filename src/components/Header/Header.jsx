@@ -1,11 +1,11 @@
 import Nav from "../Nav/Nav";
 import Hero from "../Hero/Hero";
 
-const Header = () => {
+const Header = ({ClaimFreeCredit,credit}) => {
   return (
     <div>
-      <Nav></Nav>
-      <Hero></Hero>
+      <Nav credit={credit}></Nav>
+      <Hero ClaimFreeCredit={ClaimFreeCredit}></Hero>
     </div>
   );
 };
