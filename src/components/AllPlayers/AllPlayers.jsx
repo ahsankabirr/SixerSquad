@@ -65,7 +65,7 @@ const AllPlayers = ({ loadData, chooseSelectPlayer }) => {
                   <h3 className="font-semibold text-gray-800">€{p.price}</h3>
                   <button
                     onClick={() => chooseSelectPlayer(p)}
-                    className="btn btn-outline border-gray-300 text-gray-500"
+                    className="btn btn-outline hover:bg-[#E7FE29] hover:text-gray-700 hover:border-0 border-gray-400"
                   >
                     Choose Player
                   </button>

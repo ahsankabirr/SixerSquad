@@ -1,13 +1,12 @@
 import AllPlayers from "../AllPlayers/AllPlayers";
 import AvailablePlayers from "../AvailablePlayers/AvailablePlayers";
 
-const SelectedPlayers = ({ player, isActive, handleActiveBtn }) => {
-  console.log(player);
+const SelectedPlayers = ({ player, deletePlayer, setIsActive }) => {
   return (
     <div>
       <h1 className="font-semibold md:text-2xl">
-          Selected Players({player.length}/6)
-        </h1>
+        Selected Players({player.length}/6)
+      </h1>
       {player.map((p) => (
         <div
           key={p.id}
@@ -26,7 +25,7 @@ const SelectedPlayers = ({ player, isActive, handleActiveBtn }) => {
             </span>
           </div>
           <div>
-            <button className="">
+            <button onClick={() => deletePlayer(p.id)} className="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -45,14 +44,11 @@ const SelectedPlayers = ({ player, isActive, handleActiveBtn }) => {
       ))}
 
       <button
-        onClick={() => handleActiveBtn("player")}
-        className="btn bg-[#E7FE29]"
+        onClick={() => setIsActive({ select: "available", status: true })}
+        className="btn bg-[#E7FE29] mt-5"
       >
         Add More player
       </button>
-      <div className="my-6">
-        {isActive.status === false ? "" : <AllPlayers></AllPlayers>}
-      </div>
     </div>
   );
 };

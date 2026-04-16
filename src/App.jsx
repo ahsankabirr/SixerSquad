@@ -69,6 +69,12 @@ function App() {
       }
     }
   };
+
+  // Delete player
+  const deletePlayer = (id) => {
+    const isExist = player.filter((p) => id != p.id);
+    setPlayer(isExist);
+  };
   return (
     <>
       <div className="w-11/12 md:w-9/12 mx-auto">
@@ -80,7 +86,9 @@ function App() {
           loadData={loadData}
           handleActiveBtn={handleActiveBtn}
           isActive={isActive}
+          setIsActive={setIsActive}
           player={player}
+          deletePlayer={deletePlayer}
         ></AvailablePlayers>
       </div>
       <div>

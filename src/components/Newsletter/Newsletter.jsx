@@ -8,7 +8,7 @@ const Newsletter = () => {
           style={{
             backgroundImage: "url(../../../public/images/bg-shadow.png)",
           }}
-          className="footer bg-white footer-horizontal footer-center text-base-content rounded p-10"
+          className="footer bg-white footer-horizontal footer-center text-base-content rounded-2xl p-10"
         >
           <div>
             <h1 className="text-4xl font-semibold">
@@ -21,7 +21,7 @@ const Newsletter = () => {
               <input
                 type="text"
                 placeholder="Enter your email"
-                className="input w-64 py-6 rounded-xl mb-2"
+                className="input w-64 py-6 rounded-xl mb-2 md:mb-0"
               />{" "}
               <button
                 className="
