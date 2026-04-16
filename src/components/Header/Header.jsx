@@ -1,10 +1,9 @@
 import Nav from "../Nav/Nav";
 import Hero from "../Hero/Hero";
 
-const Header = ({ClaimFreeCredit,credit}) => {
+const Header = ({ClaimFreeCredit}) => {
   return (
     <div>
-      <Nav credit={credit}></Nav>
       <Hero ClaimFreeCredit={ClaimFreeCredit}></Hero>
     </div>
   );

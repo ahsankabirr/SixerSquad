@@ -3,17 +3,14 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import { ToastContainer, toast } from "react-toastify";
 import AvailablePlayers from "./components/AvailablePlayers/AvailablePlayers";
+import Nav from "./components/Nav/Nav";
 function App() {
   // Credit Add
-  const [credit, setCredit] = useState();
+  const [credit, setCredit] = useState(0);
 
   const ClaimFreeCredit = () => {
-    if (credit >= 1) {
-      toast.warning("Your coin is not empty");
-    } else {
-      setCredit(500);
-      toast.success("Congratulation 500 Credit Added");
-    }
+    setCredit(credit + 10000);
+    toast.success("Congratulation 10000 Credit Added");
   };
 
   // Active BTN
@@ -47,15 +44,41 @@ function App() {
       .then((data) => setLoadData(data));
   }, []);
 
+  // Select player
+  const [player, setPlayer] = useState([]);
+  const chooseSelectPlayer = (players) => {
+    const isExist = player.find((p) => players.id === p.id);
+
+    if (isExist) {
+      toast.error(`${players.name} is already selected`);
+    } else {
+      if (player.length >= 6) {
+        toast.error("You can't select more then 6 players each time");
+      } else {
+        if (credit >= players.price) {
+          const playerPrice = credit - players.price;
+          setCredit(playerPrice);
+          const newPlayers = [...player, players];
+          toast.success(`Congrates!! ${players.name} is now in your squad`);
+          setPlayer(newPlayers);
+        } else {
+          toast.error("You Don't have enough balance");
+        }
+      }
+    }
+  };
   return (
     <>
       <div className="w-11/12 md:w-9/12 mx-auto">
-        <Header ClaimFreeCredit={ClaimFreeCredit} credit={credit}></Header>
+        <Nav credit={credit}></Nav>
+        <Header ClaimFreeCredit={ClaimFreeCredit}></Header>
 
         <AvailablePlayers
+          chooseSelectPlayer={chooseSelectPlayer}
           loadData={loadData}
           handleActiveBtn={handleActiveBtn}
           isActive={isActive}
+          player={player}
         ></AvailablePlayers>
       </div>
       <ToastContainer position="top-center" autoClose={2000} />
