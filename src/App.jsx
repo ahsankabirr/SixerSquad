@@ -4,6 +4,8 @@ import Header from "./components/Header/Header";
 import { ToastContainer, toast } from "react-toastify";
 import AvailablePlayers from "./components/AvailablePlayers/AvailablePlayers";
 import Nav from "./components/Nav/Nav";
+import Newsletter from "./components/Newsletter/Newsletter";
+import Footer from "./components/Footer/Footer";
 function App() {
   // Credit Add
   const [credit, setCredit] = useState(0);
@@ -55,7 +57,7 @@ function App() {
       if (player.length >= 6) {
         toast.error("You can't select more then 6 players each time");
       } else {
-        if (credit >= players.price) {
+        if (credit > players.price) {
           const playerPrice = credit - players.price;
           setCredit(playerPrice);
           const newPlayers = [...player, players];
@@ -80,6 +82,9 @@ function App() {
           isActive={isActive}
           player={player}
         ></AvailablePlayers>
+      </div>
+      <div>
+        <Newsletter></Newsletter>
       </div>
       <ToastContainer position="top-center" autoClose={2000} />
     </>
